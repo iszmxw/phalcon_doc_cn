@@ -1,11 +1,15 @@
-Tutorial 1: Let's learn by example
-==================================
+教程1：通过例子学习
+=====================================================
+虽然是第一个教程，我们会通过从头做一个有简单注册表单的应用来阐述框架的流程行为。如果对phalcon自动生成基础架构代码感兴趣可以参考 :doc:`开发者工具<tools>`
+
 Throughout this first tutorial, we'll walk you through the creation of an application with a simple registration
 form from the ground up. We will also explain the basic aspects of the framework's behavior. If you are interested
 in automatic code generation tools for Phalcon, you can check our :doc:`developer tools <tools>`.
 
-Checking your installation
+检查phalcon安装是否正确
 --------------------------
+如果我们已经完成了phalcon的安装，检查phpinfo() 的输出，查找是否有phalcon相关板块输出，或者是执行下面代码：
+
 We'll assume you have Phalcon installed already. Check your phpinfo() output for a section referencing "Phalcon"
 or execute the code snippet below:
 
@@ -13,6 +17,8 @@ or execute the code snippet below:
 
     <?php print_r(get_loaded_extensions()); ?>
 
+phalcon扩展应该会出现在如下所示的列表中	
+	
 The Phalcon extension should appear as part of the output:
 
 .. code-block:: php
@@ -28,15 +34,21 @@ The Phalcon extension should appear as part of the output:
         [6] => pdo_mysql
     )
 
-Creating a project
-------------------
+创建项目 
+-----------------------------
+学习这个教程最好的方式就是按照说明一步步来，可以从 `这里 <https://github.com/phalcon/tutorial>`_ 下载到完整代码
+
 The best way to use this guide is to follow each step in turn. You can get the complete code
 `here <https://github.com/phalcon/tutorial>`_.
 
-File structure
+文件结构
 ^^^^^^^^^^^^^^
+phalcon没有强制在开发过程中使用一个特定的文件目录结构。基于phalcon的松耦合模式，我们可以使用我们自己感觉合适的目录接口来进行基于phalcon的开发。
+
 Phalcon does not impose a particular file structure for application development. Due to the fact that it is
 loosely coupled, you can implement Phalcon powered applications with a file structure you are most comfortable using.
+
+基于现在教程，建议采用如下的简单目录结构：
 
 For the purposes of this tutorial and as a starting point, we suggest this very simple structure:
 
@@ -52,12 +64,18 @@ For the purposes of this tutorial and as a starting point, we suggest this very 
         img/
         js/
 
+注意我们不需要Library库目录，因为框架已经被加载到内存中了，随时都可以使用。		
+		
 Note that you don't need any "library" directory related to Phalcon. The framework is available in memory,
 ready for you to use.
 
-Beautiful URLs
-^^^^^^^^^^^^^^
+优美的 URLs 
+^^^^^^^^^^^^
+我们将在这个教程使用优美的友好URLs。友好的URLs有利于SEO和方便用户记忆。phalcon支持现在流行的web服务提供的重写模块。使用友好的URLs并不是必须的，不用我们照样可以顺利开发。
+
 We'll use pretty (friendly) URLs for this tutorial. Friendly URLs are better for SEO as well as being easy for users to remember. Phalcon supports rewrite modules provided by the most popular web servers. Making your application's URLs friendly is not a requirement and you can just as easily develop without them.
+
+在这个例子中我们将使用Apache的重写模块。在/tutorial/.htaccess 文件中写入如下的重写规则：
 
 In this example we'll use the rewrite module for Apache. Let's create a couple of rewrite rules in the /tutorial/.htaccess file:
 
@@ -70,7 +88,11 @@ In this example we'll use the rewrite module for Apache. Let's create a couple o
         RewriteRule  (.*) public/$1 [L]
     </IfModule>
 
+所有的请求都会被重写到public/目录并作为根目录。这步操作就是保证内部资源不被公开浏览并且减少安全威胁。
+	
 All requests to the project will be rewritten to the public/ directory making it the document root. This step ensures that the internal project folders remain hidden from public viewing and thus eliminates security threats of this kind.
+
+下面第二组规则检查请求的文件是否存在，如果存在则web服务没有必要对其进行重写。
 
 The second set of rules will check if the requested file exists and, if it does, it doesn't have to be rewritten by the web server module:
 
@@ -84,11 +106,15 @@ The second set of rules will check if the requested file exists and, if it does,
         RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]
     </IfModule>
 
-Bootstrap
-^^^^^^^^^
+引导程序Bootstrap
+^^^^^^^^^^^^^^^^^^
+第一个要被创建文件就是引导文件。这个文件非常重要的，它是应用的唯一入口，在引导文件里面我们可以初始化组件并且能够控制应用的流程动作行为。
+
 The first file you need to create is the bootstrap file. This file is very important; since it serves
 as the base of your application, giving you control of all aspects of it. In this file you can implement
 initialization of components as well as application behavior.
+
+tutorial/public/index.php 引导文件内容如下所示：
 
 The tutorial/public/index.php file should look like:
 
@@ -137,9 +163,13 @@ The tutorial/public/index.php file should look like:
          echo "PhalconException: ", $e->getMessage();
     }
 
-Autoloaders
-^^^^^^^^^^^
+自动加载器Autoloaders
+^^^^^^^^^^^^^^^^^^^^^
+在引导程序的第一步我们注册一个自动加载器。自动加载器在应用中被用于将类加载为控制器和数据模型。例如我们可以注册一个或多个控制器目录以增加应用的灵活性。在现在的这个例子中我们使用Phalcon\\Loader这个组件。
+
 The first part that we find in the bootstrap is registering an autoloader. This will be used to load classes as controllers and models in the application. For example we may register one or more directories of controllers increasing the flexibility of the application. In our example we have used the component Phalcon\\Loader.
+
+使用自动加载器可以通过多种方法来加载类，但是在这个例子中我们选择从预定义的目录中加载类：
 
 With it, we can load classes using various strategies but for this example we have chosen to locate classes based on predefined directories:
 
@@ -159,9 +189,13 @@ With it, we can load classes using various strategies but for this example we ha
         )
     )->register();
 
-Dependency Management
-^^^^^^^^^^^^^^^^^^^^^
+依赖管理
+^^^^^^^^^^
+使用phalcon之前我们首先要理解一个重要的概念 :doc:`依赖注入容器 <di>` 这个概念听来也许很复杂但实际是非常简单实用的。
+
 A very important concept that must be understood when working with Phalcon is its :doc:`dependency injection container <di>`. It may sound complex but is actually very simple and practical.
+
+一个服务容器就像一个袋子一样，里面存放着我们应用能够调用的全局服务。每当框架需要调用一个组件的时候都会以之前约定好名称去向服务容器请求该服务。因为phalcon是一个高度解耦的框架，Phalcon\\DI依赖注入容器作用就像是胶水一样将不同的组件透明的粘合在一起协同工作。
 
 A service container is a bag where we globally store the services that our application will use to function. Each time the framework requires a component, it will ask the container using an agreed upon name for the service. Since Phalcon is a highly decoupled framework, Phalcon\\DI acts as glue facilitating the integration of the different components achieving their work together in a transparent manner.
 
@@ -176,12 +210,18 @@ A service container is a bag where we globally store the services that our appli
     // Create a DI
     $di = new FactoryDefault();
 
+:doc:`Phalcon\\DI\\FactoryDefault <../api/Phalcon\_DI_FactoryDefault>` 是Phalcon\\DI的一个变体，为了让开发更简单，这个容器注册phalcon内置的大部分的组件。这样我们就不用一个个去注册这些常用组件了。当然后续使用其他的工厂服务也是没有问题的。	
+	
 :doc:`Phalcon\\DI\\FactoryDefault <../api/Phalcon\_DI_FactoryDefault>` is a variant of Phalcon\\DI. To make things easier,
 it has registered most of the components that come with Phalcon. Thus we should not register them one by one.
 Later there will be no problem in replacing a factory service.
 
+在接下来的部分，我们注册了“view”服务向框架指明要从那个目录加载我们的视图文件。因为视图和类不一致，所以我们无法通过一个自动加载器加载视图。
+
 In the next part, we register the "view" service indicating the directory where the framework will find the views files.
 As the views do not correspond to classes, they cannot be charged with an autoloader.
+
+服务可以用几种不同的方式来注册，在这个例子中我们使用 `anonymous function`_:
 
 Services can be registered in several ways, but for our tutorial we'll use an `anonymous function`_:
 
@@ -200,6 +240,8 @@ Services can be registered in several ways, but for our tutorial we'll use an `a
         return $view;
     });
 
+
+	
 Next we register a base URI so that all URIs generated by Phalcon include the "tutorial" folder we setup earlier.
 This will become important later on in this tutorial when we use the class :doc:`\Phalcon\\Tag <../api/Phalcon_Tag>`
 to generate a hyperlink.
