@@ -1,5 +1,7 @@
-List of examples
+示例列表
 ================
+通过以下完整的应用程序的例子，可以更多地了解和学习如何去使用Phalcon，并使用这些作为自己网站/应用的基础:
+
 Following examples are full applications you can use to learn more about Phalcon and use them
 as base for your own websites/applications:
 
