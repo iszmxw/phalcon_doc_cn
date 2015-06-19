@@ -1,14 +1,20 @@
-Using Views
-===========
+使用视图Using Views
+========================
+视图代表了应用程序中的用户界面. 视图通常是在 HTML 文件里嵌入 PHP 代码，这些代码仅仅是用来展示数据。 视图的任务是当应用程序发生请求时，提供数据给 web 浏览器或者其他工具。
+
 Views represent the user interface of your application. Views are often HTML files with embedded PHP code that perform tasks
 related solely to the presentation of the data. Views handle the job of providing data to the web browser or other tool that
 is used to make requests from your application.
 
+Phalcon\Mvc\View 和 Phalcon\Mvc\View\Simple 负责管理你的MVC应用程序的视图(View)层。
+
 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` and :doc:`Phalcon\\Mvc\\View\\Simple <../api/Phalcon_Mvc_View_Simple>`
 are responsible for the managing the view layer of your MVC application.
 
-Integrating Views with Controllers
-----------------------------------
+集成视图到控制器Integrating Views with Controllers
+--------------------------------------------------------
+当某个控制器已经完成了它的周期，Phalcon自动将执行传递到视图组件。视图组件将在视图文件夹中寻找一个文件夹名与最后一个控制器名相同,文件命名与最后一个动作相同的文件执行。例如，如果请求的URL *http://127.0.0.1/blog/posts/show/301*, Phalcon将如下所示的方式按解析URL:
+
 Phalcon automatically passes the execution to the view component as soon as a particular controller has completed its cycle. The view component
 will look in the views folder for a folder named as the same name of the last controller executed and then for a file named as the last action
 executed. For instance, if a request is made to the URL *http://127.0.0.1/blog/posts/show/301*, Phalcon will parse the URL as follows:
@@ -24,6 +30,8 @@ executed. For instance, if a request is made to the URL *http://127.0.0.1/blog/p
 +-------------------+-----------+
 | Parameter         | 301       |
 +-------------------+-----------+
+
+调度程序将寻找一个“PostsController”控制器及其“showAction”动作。对于这个示例的一个简单的控制器文件：
 
 The dispatcher will look for a "PostsController" and its action "showAction". A simple controller file for this example:
 
@@ -49,11 +57,16 @@ The dispatcher will look for a "PostsController" and its action "showAction". A 
 
     }
 
+setVar允许我们创建视图变量，这样可以在视图模板中使用它们。上面的示例演示了如何传递 $postId 参数到相应的视图模板。	
+	
 The setVar allows us to create view variables on demand so that they can be used in the view template. The example above demonstrates
 how to pass the $postId parameter to the respective view template.
 
-Hierarchical Rendering
-----------------------
+分层渲染Hierarchical Rendering
+------------------------------------
+:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`支持文件的层次结构，在Phalcon中是默认的视图渲染组件。这个层次结构允许通用的布局点(常用的视图)和以控制器命名的文件夹中定义各自的视图模板
+该组件使用默认PHP本身作为模板引擎，因此视图应该以.phtml作为拓展名。如果视图目录是 *app/views* ，视图组件会自动找到这三个视图文件。
+
 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` supports a hierarchy of files and is the default component for view rendering in Phalcon.
 This hierarchy allows for common layout points (commonly used views), as well as controller named folders defining respective view templates.
 
@@ -69,6 +82,8 @@ If the views directory is  *app/views* then view component will find automatical
 +-------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Main Layout       | app/views/index.phtml         | This is main action it will be shown for every controller or action executed within the application.                                                                                                                     |
 +-------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+你不需要实现上面提到的所有文件。在文件的层次结构中  :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 将简单地移动到下一个视图级别。如果这三个视图文件被实现，他们将被按下面方式处理:
 
 You are not required to implement all of the files mentioned above. :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` will simply move to the
 next view level in the hierarchy of files. If all three view files are implemented, they will be processed as follows:
@@ -105,12 +120,16 @@ next view level in the hierarchy of files. If all three view files are implement
         </body>
     </html>
 
+注意方法 *$this->getContent()* 被调用的这行。这种方法指示  :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 在这里注入前面视图层次结构执行的内容。在上面的示例中，输出将会是：	
+	
 Note the lines where the method *$this->getContent()* was called. This method instructs :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`
 on where to inject the contents of the previous view executed in the hierarchy. For the example above, the output will be:
 
 .. figure:: ../_static/img/views-1.png
    :align: center
 
+请求生成的HTML的将为：   
+   
 The generated HTML by the request will be:
 
 .. code-block:: html+php
@@ -137,8 +156,10 @@ The generated HTML by the request will be:
         </body>
     </html>
 
-Using Templates
-^^^^^^^^^^^^^^^
+使用模版 Using Templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 Templates are views that can be used to share common view code. They act as controller layouts, so you need to place them in the
 layouts directory.
 
