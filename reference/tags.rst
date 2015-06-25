@@ -12,7 +12,7 @@ This component can be used in a plain HTML+PHP view or in a :doc:`Volt <volt>` t
 
 .. highlights::
 
-	本指南并不打算成为一个完整的文档,更多的使用说明请参考:doc:`Phalcon\\Tag <../api/Phalcon_Tag>`页面的完整的api说明。
+    本指南并不打算成为一个完整的文档,更多的使用说明请参考:doc:`Phalcon\\Tag <../api/Phalcon_Tag>`页面的完整的api说明。
 
     This guide is not intended to be a complete documentation of available helpers and their arguments. Please visit
     the :doc:`Phalcon\\Tag <../api/Phalcon_Tag>` page in the API for a complete reference.

@@ -768,7 +768,7 @@ The service name convention for this service is "viewCache":
 
 .. highlights::
 
-	前端 Phalcon\Cache\Frontend\Output 和服务 ‘viewCache’ 必须在服务容器（DI）注册为总是开放（不是共享 not shared）
+    前端 Phalcon\Cache\Frontend\Output 和服务 ‘viewCache’ 必须在服务容器（DI）注册为总是开放（不是共享 not shared）
 
     The frontend must always be Phalcon\\Cache\\Frontend\\Output and the service 'viewCache' must be registered as
     always open (not shared) in the services container (DI)
