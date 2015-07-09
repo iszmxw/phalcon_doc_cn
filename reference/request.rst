@@ -1,5 +1,7 @@
-Request Environment
-===================
+HTTP 请求环境Request Environment
+========================================
+每个HTTP请求（通常有浏览器发出）都包含了如头信息，文件，变量等。基于web的应用程序需要去解析这些请求并返回正确信息。:doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>`封装了请求的信息，让我们可以以面向对象的方式去访问这些请求。
+
 Every HTTP request (usually originated by a browser) contains additional information regarding the request such as header data,
 files, variables, etc. A web based application needs to parse that information so as to provide the correct
 response back to the requester. :doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>` encapsulates the
@@ -23,12 +25,16 @@ information of the request, allowing you to access it in an object-oriented way.
         }
     }
 
-Getting Values
---------------
+获取值Getting Values
+------------------------------
+PHP根据请求类型自动将全局变量填充到$_GET 和 $_POST变量中。这些变量包含了URL请求或者表单请求的参数信息。 这些信息可能会包含恶意的字符或代码从而引起`SQL injection`_ SQL注入或者是`Cross Site Scripting (XSS)`_ 跨站攻击。
+
 PHP automatically fills the superglobal arrays $_GET and $_POST depending on the type of the request. These arrays
 contain the values present in forms submitted or the parameters sent via the URL. The variables in the arrays are
 never sanitized and can contain illegal characters or even malicious code, which can lead to `SQL injection`_ or
 `Cross Site Scripting (XSS)`_ attacks.
+
+通过:doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>`可以访问储存在$_REQUEST,$_GET 和 $_POST数据中的变量，并使用filter服务（默认是:doc:`Phalcon\\Filter <filter>`）过滤清理变量，如下所示： 
 
 :doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>` allows you to access the values stored in the $_REQUEST,
 $_GET and $_POST arrays and sanitize or filter them with the 'filter' service, (by default
@@ -58,8 +64,10 @@ $_GET and $_POST arrays and sanitize or filter them with the 'filter' service, (
     $email = $request->getPost("user_email", null, "some@example.com");
 
 
-Accessing the Request from Controllers
---------------------------------------
+控制器中访问请求Accessing the Request from Controllers
+----------------------------------------------------------
+最常见的是在控制器中访问请求参数。从控制器访问:doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>` 对象需要使用控制器的$this->request开放属性：
+
 The most common place to access the request environment is in an action of a controller. To access the
 :doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>` object from a controller you will need to use
 the $this->request public property of the controller:
@@ -94,8 +102,10 @@ the $this->request public property of the controller:
 
     }
 
-Uploading Files
----------------
+文件上传Uploading Files
+---------------------------
+另一个常见任务是文件上传。:doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>`提供了面向对象方式去完成文件上传：
+
 Another common task is file uploading. :doc:`Phalcon\\Http\\Request <../api/Phalcon_Http_Request>` offers
 an object-oriented way to achieve this task:
 
@@ -127,13 +137,17 @@ an object-oriented way to achieve this task:
 
     }
 
+由Phalcon\\Http\\Request::getUploadedFiles() 返回的每个对象都是	:doc:`Phalcon\\Http\\Request\\File <../api/Phalcon_Http_Request_File>`类的实例。用$_FILES全局变量同样可以。 :doc:`Phalcon\\Http\\Request\\File <../api/Phalcon_Http_Request_File>` 只是封装了请求中的文件的相关信息。
+	
 Each object returned by Phalcon\\Http\\Request::getUploadedFiles() is an instance of the
 :doc:`Phalcon\\Http\\Request\\File <../api/Phalcon_Http_Request_File>` class. Using the $_FILES superglobal
 array offers the same behavior. :doc:`Phalcon\\Http\\Request\\File <../api/Phalcon_Http_Request_File>` encapsulates
 only the information related to each file uploaded with the request.
 
-Working with Headers
---------------------
+使用头信息Working with Headers
+----------------------------------
+就像上面说的那样，请求的头信息中包含了必要的信息决定了我们该给用户返回哪些信息。下面代码说明如何使用：
+
 As mentioned above, request headers contain useful information that allow us to send the proper response back to
 the user. The following examples show usages of that information:
 
