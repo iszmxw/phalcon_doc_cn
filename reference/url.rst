@@ -1,11 +1,17 @@
-Generating URLs and Paths
-=========================
+生成 URL 和 路径Generating URLs and Paths
+===============================================
+:doc:`Phalcon\\Mvc\\Url <../api/Phalcon_Mvc_Url>`是phalcon应用中生成urls的组件。可以根据路由生成独立的urls.
+
 :doc:`Phalcon\\Mvc\\Url <../api/Phalcon_Mvc_Url>` is the component responsible of generate urls in a Phalcon application. It's
 capable of produce independent urls based on routes.
 
-Setting a base URI
-------------------
+设置站点基地址 Setting a base URI
+------------------------------------
+根据应用安装的根目录，会有个基uri或没有。
+
 Depending of which directory of your document root your application is installed, it may have a base uri or not.
+
+例如，如果文档根目录为/var/www/htdocs，应用安装在/var/www/htdocs/invo 。那基url就是/invo/。
 
 For example, if your document root is /var/www/htdocs and your application is installed in /var/www/htdocs/invo then your
 baseUri will be /invo/. If you are using a VirtualHost or your application is installed on the document root, then your baseUri is /.
@@ -54,8 +60,8 @@ Usually, this component must be registered in the Dependency Injector container,
         return $url;
     });
 
-Generating URIs
----------------
+生成 URIGenerating URIs
+-----------------------------
 If you are using the :doc:`Router <routing>` with its default behavior. Your application is able to match routes based on the
 following pattern: /:controller/:action/:params. Accordingly it is easy to create routes that satisfy that pattern (or any other
 pattern defined in the router) passing a string to the method "get":
@@ -90,8 +96,8 @@ A URL can be generated in the following way:
         'title' => 'some-blog-post'
     ));
 
-Producing URLs without Mod-Rewrite
-----------------------------------
+非伪静态生成URL Producing URLs without Mod-Rewrite
+-----------------------------------------------------
 You can use this component also to create urls without mod-rewrite:
 
 .. code-block:: php
@@ -148,8 +154,8 @@ The produced routes would look like:
     //This produce: /invo/index.php/products/save
     echo $url->get("products/save");
 
-Producing URLs from Volt
-------------------------
+Volt 中生成 URL Producing URLs from Volt
+-----------------------------------------------
 The function "url" is available in volt to generate URLs using this component:
 
 .. code-block:: html+jinja
@@ -162,8 +168,8 @@ Generate static routes:
 
     <link rel="stylesheet" href="{{ static_url("css/style.css") }}" type="text/css" />
 
-Static vs. Dynamic Uris
------------------------
+静态 URI 与 动态 URI Static vs. Dynamic Uris
+----------------------------------------------
 This component allow you to set up a different base uri for static resources in the application:
 
 .. code-block:: php
@@ -182,7 +188,7 @@ This component allow you to set up a different base uri for static resources in 
 
 :doc:`Phalcon\\Tag <tags>` will request both dynamical and static URIs using this component.
 
-Implementing your own Url Generator
------------------------------------
+自定义 URL 生成器 Implementing your own Url Generator
+-----------------------------------------------------------
 The :doc:`Phalcon\\Mvc\\UrlInterface <../api/Phalcon_Mvc_UrlInterface>` interface must be implemented to create your own URL
 generator replacing the one provided by Phalcon.
