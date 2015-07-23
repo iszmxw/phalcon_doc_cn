@@ -1,10 +1,14 @@
-Unit testing
-============
+单元测试Unit testing
+=========================
+编写适当的测试可以帮助写作更好的软件。如果你设置适当的测试用例可以消除大多数的功能缺陷和更好地去维护软件。
+
 Writing proper tests can assist in writing better software. If you set up proper test cases you can eliminate most
 functional bugs and better maintain your software.
 
-Integrating PHPunit with phalcon
---------------------------------
+整合 PHPunit 到 phalcon Integrating PHPunit with phalcon
+------------------------------------------------------------
+如果你没有安装phpunit,你可以通过使用下面的composer命令:
+
 If you don't already have phpunit installed, you can do it by using the following composer command:
 
 .. code-block:: bash
@@ -12,6 +16,8 @@ If you don't already have phpunit installed, you can do it by using the followin
   composer require phpunit/phpunit
 
 
+或者手动添加到composer.json：  
+  
 or by manually adding it to composer.json:
 
 .. code-block:: json
@@ -23,6 +29,8 @@ or by manually adding it to composer.json:
   }
 
 
+当phpunit安装好后，在根目录创建叫做“test”的目录：  
+  
 Once phpunit is installed create a directory called 'tests' in your root directory:
 
 .. code-block:: bash
@@ -31,10 +39,14 @@ Once phpunit is installed create a directory called 'tests' in your root directo
   public/
   tests/
 
+接下来，需要一个启动文件来启动单元测试。  
+  
 Next, we need a 'helper' file to bootstrap the application for unit testing.
 
-The PHPunit helper file
------------------------
+PHPunit 辅助文件 The PHPunit helper file
+----------------------------------------------
+引导应用程序运行测试，需要一个helper文件。我们准备了一个示例文件。把它放到test目录并命名为TestHelper.php。
+
 A helper file is required to bootstrap the application for running the tests. We have prepared a sample file. Put the
 file in your tests/ directory as TestHelper.php.
 
@@ -80,11 +92,17 @@ file in your tests/ directory as TestHelper.php.
   DI::setDefault($di);
 
 
+如果您需要从自己的类库测试任何组件,将它们添加到自动加载器或从主程序中使用自动加载器。  
+  
 Should you need to test any components from your own library, add them to the autoloader or use the autoloader from your
 main application.
 
+为了帮助您构建单元测试,我们做了一些抽象类可以用来引导单元测试。去@ https://github.com/phalcon/incubator.查看。
+
 To help you build the unit tests, we made a few abstract classes you can use to bootstrap the unit tests themselves.
 These files exist in the Phalcon incubator @ https://github.com/phalcon/incubator.
+
+可以使用incubator库将他们添加到composer中。
 
 You can use the incubator library by adding it as a dependency:
 
@@ -93,6 +111,8 @@ You can use the incubator library by adding it as a dependency:
   composer require phalcon/incubator
 
 
+或者手动添加：  
+  
 or by manually adding it to composer.json:
 
 .. code-block:: json
@@ -103,10 +123,12 @@ or by manually adding it to composer.json:
       }
   }
 
+或者clone上面的库使用上面的链接。  
+  
 You can also clone the repository using the repo link above.
 
-PHPunit.xml file
-----------------
+PHPunit.xml 文件 PHPunit.xml file
+-------------------------------------
 Now, create a phpunit file:
 
 .. code-block:: xml
@@ -128,16 +150,26 @@ Now, create a phpunit file:
       </testsuite>
   </phpunit>
 
+更改 phpunit.xml 去满足需求，并保存在tests/目录下。 
+  
 Modify the phpunit.xml to fit your needs and save it in tests/.
+
+将会执行在tests/目录下任何的测试。
 
 This will run any tests under the tests/ directory.
 
-Sample unit test
-----------------
+简单的单元测试 Sample unit test
+-----------------------------------
+运行单元测试,您需要定义它们。自动加载器将确保适当的文件，然后phpunit将为您运行测试。
+
 To run any unit tests you need to define them. The autoloader will make sure the proper files are loaded so all you
 need to do is create the files and phpunit will run the tests for you.
 
+这个例子不包含一个配置文件,然而,大多数测试用例需要一个。你可以将它添加到依赖注入容器去获取 UnitTestCase文件。
+
 This example does not contain a config file, most test cases however, do need one. You can add it to the DI to get the UnitTestCase file.
+
+首先需要在/tests目录创建一个UnitTestCase.php文件：
 
 First create a base unit test called UnitTestCase.php in your /tests directory:
 
@@ -186,6 +218,8 @@ First create a base unit test called UnitTestCase.php in your /tests directory:
       }
   }
 
+在名称空间独立单元测试总是一个好主意。对于这个测试,我们将创建名称空间“测试”。 所以创建一个文件叫做 \tests\Test\UnitTest.php
+  
 It's always a good idea to separate your Unit tests in namespaces. For this test we will create the namespace
 'Test'. So create a file called \tests\Test\UnitTest.php:
 
@@ -214,6 +248,8 @@ It's always a good idea to separate your Unit tests in namespaces. For this test
       }
   }
 
+ 在\tests目录命令行中执行'phpunit'。会得到如下结果： 
+  
 Now when you execute 'phpunit' in your command-line from the \tests directory you will get the following output:
 
 .. code-block:: bash
@@ -241,6 +277,8 @@ Now when you execute 'phpunit' in your command-line from the \tests directory yo
   FAILURES!
   Tests: 1, Assertions: 2, Failures: 1.
 
+现在可以编写我们的单元测试了。这里有篇很好的教程http://blog.stevensanderson.com/2009/08/24/writing-great-unit-tests-best-and-worst-practises/。如果不熟悉建议去读phpunit的官方教程。 
+  
 Now you can start building your unit tests. You can view a good guide here (we also recommend reading the
 PHPunit documentation if you're not familiar with PHPunit):
 

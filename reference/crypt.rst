@@ -1,12 +1,16 @@
-Encryption/Decryption
-=====================
+加密与解密Encryption/Decryption
+========================================
+Phalcon通过  :doc:`Phalcon\\Crypt <../api/Phalcon_Crypt>`  组件提供了加密和解密工具。这个类提供了对php mcrypt 的封装。默认情况下这个组件使用AES-256 (rijndael-256-cbc)。
+
 Phalcon provides encryption facilities via the :doc:`Phalcon\\Crypt <../api/Phalcon_Crypt>` component.
 This class offers simple object-oriented wrappers to the mcrypt_ php's encryption library.
 
 By default, this component provides secure encryption using AES-256 (rijndael-256-cbc).
 
-Basic Usage
------------
+基本使用Basic Usage
+-------------------------
+这个组件极易使用：
+
 This component is designed to provide a very simple usage:
 
 .. code-block:: php
@@ -25,6 +29,8 @@ This component is designed to provide a very simple usage:
 
     echo $crypt->decrypt($encrypted, $key);
 
+也可以使用同一实例加密多次：	
+	
 You can use the same instance to encrypt/decrypt several times:
 
 .. code-block:: php
@@ -50,8 +56,10 @@ You can use the same instance to encrypt/decrypt several times:
         echo $crypt->decrypt($encrypted, $key);
     }
 
-Encryption Options
-------------------
+加密选项Encryption Options
+----------------------------------
+下面的选项可以改变加密的行为：
+
 The following options are available to change the encryption behavior:
 
 +------------+---------------------------------------------------------------------------------------------------+
@@ -61,6 +69,8 @@ The following options are available to change the encryption behavior:
 +------------+---------------------------------------------------------------------------------------------------+
 | Mode       | One of the encryption modes supported by libmcrypt (ecb, cbc, cfb, ofb)                           |
 +------------+---------------------------------------------------------------------------------------------------+
+
+例子:
 
 Example:
 
@@ -81,8 +91,10 @@ Example:
 
     echo $crypt->encrypt($text, $key);
 
-Base64 Support
---------------
+支持Base64 Base64 Support
+-----------------------------
+为了方便传输或显示我们可以对加密后的数据进行 base64_ 转码：
+
 In order that encryption is properly transmitted (emails) or displayed (browsers) base64_ encoding is usually applied to encrypted texts:
 
 .. code-block:: php
@@ -101,8 +113,10 @@ In order that encryption is properly transmitted (emails) or displayed (browsers
 
     echo $crypt->decryptBase64($text, $key);
 
-Setting up an Encryption service
---------------------------------
+配置加密服务Setting up an Encryption service
+-----------------------------------------------
+你也可以把加密组件放入服务容器中这样我们可以在应用中的任何一个地方访问这个组件：
+
 You can set up the encryption component in the services container in order to use it from any part of the application:
 
 .. code-block:: php
@@ -121,6 +135,8 @@ You can set up the encryption component in the services container in order to us
         return $crypt;
     }, true);
 
+然后，例如，我们可以在控制器中使用它了：	
+	
 Then, for example, in a controller you can use it as follows:
 
 .. code-block:: php

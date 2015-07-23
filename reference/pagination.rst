@@ -1,10 +1,14 @@
-Pagination
-==========
+分页Pagination
+=================
+分页的过程发生在我们需要逐渐呈现大组的任意数据。Phalcon\\Paginator提供快速和方便的方式将这些数据集输出到页面。
+
 The process of pagination takes place when we need to present big groups of arbitrary data gradually. Phalcon\\Paginator offers a
 fast and convenient way to split these sets of data browsable pages.
 
-Data Adapters
--------------
+数据适配器Data Adapters
+---------------------------
+该组件使用了适配器封装不同来源的数据:
+
 This component makes use of adapters to encapsulate different sources of data:
 
 +--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -17,8 +21,10 @@ This component makes use of adapters to encapsulate different sources of data:
 | QueryBuilder | Use a Phalcon\\Mvc\\Model\\Query\\Builder object as source data                                                                                                               |
 +--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Examples
---------
+示例Examples
+-------------
+在下面的示例中,paginator将使用从一个模型查询的结果作为源数据,并限制每页显示的数据到10记录:
+
 In the example below, the paginator will use as its source data the result of a query from a model, and limit the displayed data to 10 records per page:
 
 .. code-block:: php
@@ -48,6 +54,8 @@ In the example below, the paginator will use as its source data the result of a 
     // Get the paginated results
     $page = $paginator->getPaginate();
 
+变量$currentPage控件将显示在页面。$paginator->getPaginate()返回一个包含分页数据$page对象。它可以用于产生分页:	
+	
 Variable $currentPage controls the page to be displayed. The $paginator->getPaginate() returns a $page
 object that contains the paginated data. It can be used for generating the pagination:
 
@@ -68,6 +76,8 @@ object that contains the paginated data. It can be used for generating the pagin
         <?php } ?>
     </table>
 
+$page对象包含导航链接数据：	
+	
 The $page object also contains navigation data:
 
 .. code-block:: html+php
@@ -79,8 +89,10 @@ The $page object also contains navigation data:
 
     <?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>
 
-Adapters Usage
---------------
+适配器使用Adapters Usage
+-------------------------
+为每个适配器设置数据源的例子如下：
+
 An example of the source data that must be used for each adapter:
 
 .. code-block:: php
@@ -129,8 +141,10 @@ An example of the source data that must be used for each adapter:
     ));
 
 
-Page Attributes
----------------
+页面属性Page Attributes
+--------------------------
+$page对象包含如下属性：
+
 The $page object has the following attributes:
 
 +-------------+--------------------------------------------------------+
@@ -151,8 +165,10 @@ The $page object has the following attributes:
 | total_items | The number of items in the source data                 |
 +-------------+--------------------------------------------------------+
 
-Implementing your own adapters
-------------------------------
+自定义适配器Implementing your own adapters
+-------------------------------------------
+:doc:`Phalcon\\Paginator\\AdapterInterface <../api/Phalcon_Paginator_AdapterInterface>`必须被实现如果要创建自己的分页适配器：
+
 The :doc:`Phalcon\\Paginator\\AdapterInterface <../api/Phalcon_Paginator_AdapterInterface>` interface must be implemented in order to create your own paginator adapters or extend the existing ones:
 
 .. code-block:: php
