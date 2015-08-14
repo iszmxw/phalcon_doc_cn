@@ -1,20 +1,20 @@
 通用类加载器Universal Class Loader
 =====================================
-:doc:`Phalcon\\Loader <../api/Phalcon_Loader>`是一个允许我们根据预先定义好的规则自动加载类的组件。因为这个组件是有C语言编写的所以在读取和解析外部PHP时候性能非常高。
+:doc:`Phalcon\\Loader <../api/Phalcon_Loader>` 是一个允许我们根据预先定义好的规则自动加载类的组件。因为这个组件是有C语言编写的所以在读取和解析外部PHP时候性能非常高。
 
 :doc:`Phalcon\\Loader <../api/Phalcon_Loader>` is a component that allows you to load project classes automatically,
 based on some predefined rules. Since this component is written in C, it provides the lowest overhead in
 reading and interpreting external PHP files.
 
-这个行为依赖于PHP的`autoloading classes`_能力。如果一个类在代码任何一部位没有被使用，一个特定的处理过程将会架在它。:doc:`Phalcon\\Loader <../api/Phalcon_Loader>`就是那个特殊的过程组件。整体性能得到了提升，只有当文件再被使用的时候才会被加载，这项技术叫做`lazy initialization`_。
+这个行为依赖于PHP的 `autoloading classes`_ 能力。如果一个类在代码任何一部位没有被使用，一个特定的处理过程将会架在它。:doc:`Phalcon\\Loader <../api/Phalcon_Loader>` 就是那个特殊的过程组件。整体性能得到了提升，只有当文件再被使用的时候才会被加载，这项技术叫做 `lazy initialization`_ 。
 
 The behavior of this component is based on the PHP's capability of `autoloading classes`_. If a class that does
 not exist is used in any part of the code, a special handler will try to load it.
 :doc:`Phalcon\\Loader <../api/Phalcon_Loader>` serves as the special handler for this operation.
 By loading classes on a need to load basis, the overall performance is increased since the only file
-reads that occur are for the files needed. This technique is called `lazy initialization`_.
+reads that occur are for the files needed. This technique is called `lazy initialization`_ .
 
-通过该组件可以从其他项目或提供者加载文件。这个自动加载器是兼容`PSR-0 <https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md>`_。
+通过该组件可以从其他项目或提供者加载文件。这个自动加载器是兼容 `PSR-0 <https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md>`_ 。
 
 With this component you can load files from other projects or vendors, this autoloader is `PSR-0 <https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md>`_ compliant.
 

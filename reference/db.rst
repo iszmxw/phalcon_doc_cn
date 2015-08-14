@@ -1,6 +1,6 @@
 数据库抽象层Database Abstraction Layer
 ============================================
-:doc:`Phalcon\\Db <../api/Phalcon_Db>`是 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`背后的一个组件，它为框架提供了强大的model层。它是一个完全由C语言写的独立的高级抽象层的数据库系统。
+:doc:`Phalcon\\Db <../api/Phalcon_Db>` 是 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 背后的一个组件，它为框架提供了强大的model层。它是一个完全由C语言写的独立的高级抽象层的数据库系统。
 
 :doc:`Phalcon\\Db <../api/Phalcon_Db>` is the component behind :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` that powers the model layer
 in the framework. It consists of an independent high-level abstraction layer for database systems completely written in C.
@@ -42,9 +42,9 @@ database engines are supported:
 The :doc:`Phalcon\\Db\\AdapterInterface <../api/Phalcon_Db_AdapterInterface>` interface must be implemented in order to create your own
 database adapters or extend the existing ones.
 
-数据库“方言”封装Database Dialects
+数据库“接口”封装Database Dialects
 -----------------------------------
-Phalcon把每个数据库引擎的具体操作封装成“方言”，这些“方言”提供了提供通用的功能和SQL生成的适配器。 (译者注：这里的“方言”是指Phalcon把一些常用的数据库操作封装成类的方法，例如检查数据库中表是否存在，不再需要麻烦的手动写SQL，可以把调用tableExists方法去查询)
+Phalcon把每个数据库引擎的具体操作封装成“接口”，这些“接口”提供了提供通用的功能和SQL生成的适配器。 (译者注：这里的“接口”是指Phalcon把一些常用的数据库操作封装成类的方法，例如检查数据库中表是否存在，不再需要麻烦的手动写SQL，可以把调用tableExists方法去查询)
 
 Phalcon encapsulates the specific details of each database engine in dialects. Those provide common functions and SQL generator to the adapters.
 
@@ -60,9 +60,9 @@ Phalcon encapsulates the specific details of each database engine in dialects. T
 | Oracle     | SQL specific dialect for Oracle database system     | :doc:`Phalcon\\Db\\Dialect\\Oracle <../api/Phalcon_Db_Dialect_Oracle>`         |
 +------------+-----------------------------------------------------+--------------------------------------------------------------------------------+
 
-自定义“方言”Implementing your own dialects
+自定义“接口”Implementing your own dialects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-如果你想创建自己的“方言”或者扩展现有的“方言”，你需要实现这个接口：:doc:`Phalcon\\Db\\DialectInterface <../api/Phalcon_Db_DialectInterface>` 
+如果你想创建自己的“接口”或者扩展现有的“接口”，你需要实现这个接口：:doc:`Phalcon\\Db\\DialectInterface <../api/Phalcon_Db_DialectInterface>` 
 
 The :doc:`Phalcon\\Db\\DialectInterface <../api/Phalcon_Db_DialectInterface>` interface must be implemented in order to create your own database dialects or extend the existing ones.
 
@@ -167,7 +167,7 @@ You can set PDO options at connection time by passing the parameters 'options':
 
 查找行Finding Rows
 -------------------------
-:doc:`Phalcon\\Db <../api/Phalcon_Db>`提供了几种方法去查询行。在这个例子中，SQL语句是必须符合数据库的SQL语法的：
+:doc:`Phalcon\\Db <../api/Phalcon_Db>` 提供了几种方法去查询行。在这个例子中，SQL语句是必须符合数据库的SQL语法的：
 
 :doc:`Phalcon\\Db <../api/Phalcon_Db>` provides several methods to query rows from tables. The specific SQL syntax of the target database engine is required in this case:
 
