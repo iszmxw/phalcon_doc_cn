@@ -1292,7 +1292,7 @@ The above code set up to delete all the referenced records (parts) if the master
 
 生成运算Generating Calculations
 ------------------------------------
-:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`计算或者统计函数像是 COUNT, SUM, MAX, MIN or AVG可以直接使用。
+:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 计算或者统计函数像是 COUNT, SUM, MAX, MIN or AVG可以直接使用。
 
 Calculations (or aggregations) are helpers for commonly used functions of database systems such as COUNT, SUM, MAX, MIN or AVG.
 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` allows to use these functions directly from the exposed methods.
