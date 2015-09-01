@@ -15,7 +15,7 @@ of your application.
 
 缓存结果集Caching Resultsets
 ---------------------------------
-一个非常可行的方案是我们可以为那些不经常改变且经常访问的数据库数据进行缓存，比如把他们放入内存，这样可以加快程序的执行速度。当:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`需要使用缓存数据的服务时Model可以直接从DI中取得此缓存服务modelsCache(惯例名).Phalcon提供了一个组件（服务）可以用来:doc:`cache <cache>`任何种类的数据，下面我们会解释如何在model使用它。第一步我们要在启动文件注册这个服务:
+一个非常可行的方案是我们可以为那些不经常改变且经常访问的数据库数据进行缓存，比如把他们放入内存，这样可以加快程序的执行速度。当 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 需要使用缓存数据的服务时Model可以直接从DI中取得此缓存服务modelsCache(惯例名).Phalcon提供了一个组件（服务）可以用来 :doc:`cache <cache>` 任何种类的数据，下面我们会解释如何在model使用它。第一步我们要在启动文件注册这个服务:
 
 A well established technique to avoid the continuous access to the database is to cache resultsets that don't change
 frequently using a system with faster access (usually memory).

@@ -13,7 +13,7 @@ the ACLs. Roles are objects that request access to resources and can be allowed 
 
 创建 ACLCreating an ACL
 ----------------------------
-这个组件起先是设计工作在内存中的， 这样做提供了更高的访问速度。 :doc:`Phalcon\\Acl <../api/Phalcon_Acl>`构造器的第一个参数用于设置取得ACL的方式。 下面是使用内存适配器的例子：
+这个组件起先是设计工作在内存中的， 这样做提供了更高的访问速度。 :doc:`Phalcon\\Acl <../api/Phalcon_Acl>` 构造器的第一个参数用于设置取得ACL的方式。 下面是使用内存适配器的例子：
 
 This component is designed to initially work in memory. This provides ease of use and speed in accessing every aspect of the list. The :doc:`Phalcon\\Acl <../api/Phalcon_Acl>` constructor takes as its first parameter an adapter used to retriever the information related to the control list. An example using the memory adapter is below:
 
@@ -38,7 +38,7 @@ By default :doc:`Phalcon\\Acl <../api/Phalcon_Acl>` allows access to action on r
 
 添加角色Adding Roles to the ACL
 -------------------------------------
-角色即是权限的集合体，其中定义了我们对资源的访问权限。 例如， 我们会把一个组织内的不同的人定义为不同的角色。 :doc:`Phalcon\\Acl\\Role <../api/Phalcon_Acl_Role>`类使用一种更有组织的方式来定义角色。 这里我们创建一些角色：
+角色即是权限的集合体，其中定义了我们对资源的访问权限。 例如， 我们会把一个组织内的不同的人定义为不同的角色。 :doc:`Phalcon\\Acl\\Role <../api/Phalcon_Acl_Role>` 类使用一种更有组织的方式来定义角色。 这里我们创建一些角色：
 
 A role is an object that can or cannot access certain resources in the access list. As an example, we will define roles as groups of people in an organization. The :doc:`Phalcon\\Acl\\Role <../api/Phalcon_Acl_Role>` class is available to create roles in a more structured way. Let's add some roles to our recently created list:
 

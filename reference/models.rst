@@ -3869,7 +3869,7 @@ The available options are:
 
 
 独立组件Stand-Alone component
-----------------------------------
+-----------------------------------
 :doc:`Phalcon\\Mvc\\Model <models>`可以如下的代码所示独立使用：
 
 Using :doc:`Phalcon\\Mvc\\Model <models>` in a stand-alone mode can be demonstrated below:

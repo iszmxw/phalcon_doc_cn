@@ -129,7 +129,7 @@ prefix for every session variable created in a certain application:
 
 会话袋Session Bags
 ------------------------
-:doc:`Phalcon\\Session\\Bag <../api/Phalcon_Session_Bag>`是一个可以分离会话数据到namespaces的组件。使用这个组件可以轻易的创建会话数据分组。只需要将变量设置为bag中的值就可以自动保存在会话中：
+:doc:`Phalcon\\Session\\Bag <../api/Phalcon_Session_Bag>` 是一个可以分离会话数据到namespaces的组件。使用这个组件可以轻易的创建会话数据分组。只需要将变量设置为bag中的值就可以自动保存在会话中：
 
 :doc:`Phalcon\\Session\\Bag <../api/Phalcon_Session_Bag>` is a component that helps separating session data into "namespaces".
 Working by this way you can easily create groups of session variables into the application. By only setting the variables in the "bag",
@@ -149,7 +149,7 @@ it's automatically stored in session:
 
 组件的持久数据Persistent Data in Components
 ------------------------------------------------
-继承自:doc:`Phalcon\\DI\\Injectable <../api/Phalcon_DI_Injectable>`的控制器、组件或者是类可以注入到:doc:`Phalcon\\Session\\Bag <../api/Phalcon_Session_Bag>`中。这个类可以分离每个类中的变量。使用这个方法可以在请求之间持久化保存数据。
+继承自 :doc:`Phalcon\\DI\\Injectable <../api/Phalcon_DI_Injectable>` 的控制器、组件或者是类可以注入到 :doc:`Phalcon\\Session\\Bag <../api/Phalcon_Session_Bag>` 中。这个类可以分离每个类中的变量。使用这个方法可以在请求之间持久化保存数据。
 
 Controller, components and classes that extends :doc:`Phalcon\\DI\\Injectable <../api/Phalcon_DI_Injectable>` may inject
 a :doc:`Phalcon\\Session\\Bag <../api/Phalcon_Session_Bag>`. This class isolates variables for every class.

@@ -1,6 +1,6 @@
 读取配置Reading Configurations
 =====================================
-:doc:`Phalcon\\Config <../api/Phalcon_Config>`是一个用于将各种格式的配置文件读取到PHP对象的组件（使用适配器）。
+:doc:`Phalcon\\Config <../api/Phalcon_Config>` 是一个用于将各种格式的配置文件读取到PHP对象的组件（使用适配器）。
 
 :doc:`Phalcon\\Config <../api/Phalcon_Config>` is a component used to read configuration files of various formats (using adapters) into
 PHP objects for use in an application.

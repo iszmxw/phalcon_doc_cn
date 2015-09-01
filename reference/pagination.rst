@@ -167,7 +167,7 @@ The $page object has the following attributes:
 
 自定义适配器Implementing your own adapters
 -------------------------------------------
-:doc:`Phalcon\\Paginator\\AdapterInterface <../api/Phalcon_Paginator_AdapterInterface>`必须被实现如果要创建自己的分页适配器：
+:doc:`Phalcon\\Paginator\\AdapterInterface <../api/Phalcon_Paginator_AdapterInterface>` 必须被实现如果要创建自己的分页适配器：
 
 The :doc:`Phalcon\\Paginator\\AdapterInterface <../api/Phalcon_Paginator_AdapterInterface>` interface must be implemented in order to create your own paginator adapters or extend the existing ones:
 
