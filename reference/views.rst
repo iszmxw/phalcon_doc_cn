@@ -64,7 +64,7 @@ how to pass the $postId parameter to the respective view template.
 
 分层渲染Hierarchical Rendering
 ------------------------------------
-:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`支持文件的层次结构，在Phalcon中是默认的视图渲染组件。这个层次结构允许通用的布局点(常用的视图)和以控制器命名的文件夹中定义各自的视图模板
+:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 支持文件的层次结构，在Phalcon中是默认的视图渲染组件。这个层次结构允许通用的布局点(常用的视图)和以控制器命名的文件夹中定义各自的视图模板
 该组件使用默认PHP本身作为模板引擎，因此视图应该以.phtml作为拓展名。如果视图目录是 *app/views* ，视图组件会自动找到这三个视图文件。
 
 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` supports a hierarchy of files and is the default component for view rendering in Phalcon.
@@ -276,7 +276,7 @@ The final output will be the following:
 
 控制渲染级别Control Rendering Levels
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-如上所述，:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`支持视图分层。你可能需要控制视图组件的渲染级别。方法 Phalcon\Mvc\\View::setRenderLevel()提供这个功能。
+如上所述，:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 支持视图分层。你可能需要控制视图组件的渲染级别。方法 Phalcon\Mvc\\View::setRenderLevel()提供这个功能。
 
 As seen above, :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` supports a view hierarchy. You might need to control the level of rendering
 produced by the view component. The method Phalcon\Mvc\\View::setRenderLevel() offers this functionality.
@@ -325,17 +325,17 @@ The available render levels are:
 +-----------------------+--------------------------------------------------------------------------+-------+
 | Class Constant        | Description                                                              | Order |
 +=======================+==========================================================================+=======+
-| LEVEL_NO_RENDER       | 表明要避免产生任何形式的显示。  						                   |       |
+| LEVEL_NO_RENDER       | 表明要避免产生任何形式的显示。                                           |       |
 +-----------------------+--------------------------------------------------------------------------+-------+
-| LEVEL_ACTION_VIEW     | 生成显示到视图关联的动作。									           | 1     |
+| LEVEL_ACTION_VIEW     | 生成显示到视图关联的动作。                                               | 1     |
 +-----------------------+--------------------------------------------------------------------------+-------+
 | LEVEL_BEFORE_TEMPLATE | 生成显示到控制器模板布局之前。                                           | 2     |
 +-----------------------+--------------------------------------------------------------------------+-------+
-| LEVEL_LAYOUT          | 生成显示到控制器布局。								                   | 3     |
+| LEVEL_LAYOUT          | 生成显示到控制器布局。                                                   | 3     |
 +-----------------------+--------------------------------------------------------------------------+-------+
-| LEVEL_AFTER_TEMPLATE  | 生成显示到控制器模板布局后。    										   | 4     |
+| LEVEL_AFTER_TEMPLATE  | 生成显示到控制器模板布局后。                                             | 4     |
 +-----------------------+--------------------------------------------------------------------------+-------+
-| LEVEL_MAIN_LAYOUT     | 生成显示到主布局。文件： views/index.phtml						       | 5     |
+| LEVEL_MAIN_LAYOUT     | 生成显示到主布局。文件： views/index.phtml                               | 5     |
 +-----------------------+--------------------------------------------------------------------------+-------+
 
 关闭渲染级别Disabling render levels
@@ -392,7 +392,7 @@ Or disable temporarily in some part of the application:
 
 选择视图Picking Views
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-如上所述, 当 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 由 :doc:`Phalcon\\Mvc\\Application <../api/Phalcon_Mvc_Application>`视图渲染的是最后的一个相关的控制器和执行动作。你可以使用 Phalcon\\Mvc\\View::pick() 方法覆盖它。
+如上所述, 当 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 由 :doc:`Phalcon\\Mvc\\Application <../api/Phalcon_Mvc_Application>` 视图渲染的是最后的一个相关的控制器和执行动作。你可以使用 Phalcon\\Mvc\\View::pick() 方法覆盖它。
 
 As mentioned above, when :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` is managed by :doc:`Phalcon\\Mvc\\Application <../api/Phalcon_Mvc_Application>`
 the view rendered is the one related with the last controller and action executed. You could override this by using the Phalcon\\Mvc\\View::pick() method:
@@ -475,13 +475,13 @@ You can return a 'response' object to avoid disable the view manually:
 
 简单渲染Simple Rendering
 ---------------------------
-:doc:`Phalcon\\Mvc\\View\\Simple <../api/Phalcon_Mvc_View_Simple>` 是 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 的大多数的设计思想，但缺少文件的层次结构是它们的主要区别。
+:doc:`Phalcon\\Mvc\\View\\Simple <../api/Phalcon_Mvc_View_Simple>` 是 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 的一个替代组件，它们的主要区别是相对于 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 它缺少文件的层次结构。
 
 :doc:`Phalcon\\Mvc\\View\\Simple <../api/Phalcon_Mvc_View_Simple>` is an alternative component to :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`.
 It keeps most of the philosophy of :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` but lacks of a hierarchy of files which is, in fact,
 the main feature of its counterpart.
 
-该组件允许开发人员控制渲染视图时，视图所在位置。 此外，该组件可以利用从视图中继承的可用的模板引擎。比如 :doc:`Volt <volt>`和其他的一些模板引擎。
+该组件允许开发人员控制渲染视图时，视图所在位置。 此外，该组件可以利用从视图中继承的可用的模板引擎。比如 :doc:`Volt <volt>` 和其他的一些模板引擎。
 
 This component allows the developer to have control of when a view is rendered and its location.
 In addition, this component can leverage of view inheritance available in template engines such
@@ -507,7 +507,7 @@ The default component must be replaced in the service container:
 
     }, true);
 
-自动渲染必须在 :doc:`Phalcon\Mvc\Application <applications>`被禁用 (如果需要):	
+自动渲染必须在 :doc:`Phalcon\Mvc\Application <applications>` 被禁用 (如果需要):	
 	
 Automatic rendering must be disabled in :doc:`Phalcon\\Mvc\\Application <applications>` (if needed):
 
@@ -673,7 +673,7 @@ it is not possible to forward the execution flow to another controller in the ca
 
 缓存视图片段Caching View Fragments
 ----------------------------------------
-有时当你开发动态网站和一些区域不会经常更新，请求的输出是完全相同的。:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`提供缓存全部或部分的渲染输出来提高性能。
+有时当你开发动态网站和一些区域不会经常更新，请求的输出是完全相同的。:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 提供缓存全部或部分的渲染输出来提高性能。
 
 Sometimes when you develop dynamic websites and some areas of them are not updated very often, the output is exactly
 the same between requests. :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` offers caching a part or the whole
@@ -833,7 +833,7 @@ Additionally, :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` allows you to 
 Using a different template engine, usually requires complex text parsing using external PHP libraries in order to generate the final output
 for the user. This usually increases the number of resources that your application will use.
 
-如果一个外部模板引擎被使用，:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`提供完全相同的视图渲染等级，仍然可以尝试在这些模板内访问的更多的API。
+如果一个外部模板引擎被使用，:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 提供完全相同的视图渲染等级，仍然可以尝试在这些模板内访问的更多的API。
 
 If an external template engine is used, :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` provides exactly the same view hierarchy and it's
 still possible to access the API inside these templates with a little more effort.
@@ -848,7 +848,7 @@ This component uses adapters, these help Phalcon to speak with those external te
 
 There are many template engines, which you might want to integrate or create one of your own. The first step to start using an external template engine is create an adapter for it.
 
-模板引擎的适配器是一个类，作为 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`和模板引擎本身之间的桥梁。 通常它只需要实现两个方法: __construct() and render()。首先接收 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`和应用程序使用的DI容器来创建引擎适配器实例。
+模板引擎的适配器是一个类，作为 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 和模板引擎本身之间的桥梁。 通常它只需要实现两个方法: __construct() and render()。首先接收 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 和应用程序使用的DI容器来创建引擎适配器实例。
 
 A template engine adapter is a class that acts as bridge between :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` and the template engine itself.
 Usually it only needs two methods implemented: __construct() and render(). The first one receives the :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`
@@ -945,7 +945,7 @@ You can replace the template engine completely or use more than one template eng
 accepts an array containing data that define the template engines. The key of each engine is an extension that aids in distinguishing one from another.
 Template files related to the particular engine must have those extensions.
 
-\Phalcon\\Mvc\\View::registerEngines() 会按照相关顺序定义模板引擎执行。如果:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>`发现具有相同名称但不同的扩展，它只会使第一个。
+\Phalcon\\Mvc\\View::registerEngines() 会按照相关顺序定义模板引擎执行。如果:doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` 发现具有相同名称但不同的扩展，它只会使第一个。
 
 The order that the template engines are defined with \Phalcon\\Mvc\\View::registerEngines() defines the relevance of execution. If
 :doc:`Phalcon\\Mvc\\View <../api/Phalcon_Mvc_View>` finds two views with the same name but different extensions, it will only render the first one.
