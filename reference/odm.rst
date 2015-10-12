@@ -40,7 +40,7 @@ file must contain a single class; its class name should be in camel case notatio
 
 .. highlights::
 	
-	如果PHP版本为5.4/5.5或更高版本，为了提高性能节省内存开销，最好在模型类文件中定义每个字段。
+    如果PHP版本为5.4/5.5或更高版本，为了提高性能节省内存开销，最好在模型类文件中定义每个字段。
 	
     If you're using PHP 5.4/5.5 is recommended declare each column that makes part of the model in order to save
     memory and reduce the memory allocation.
@@ -160,7 +160,7 @@ Connections are retrieved from the services container. By default, Phalcon tries
 
 查找文档Finding Documents
 ------------------------------
- :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>`依赖mongo的PHP扩展，我们有同样的功能区查询文档并在模型中进行转换：
+ :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` 依赖mongo的PHP扩展，我们有同样的功能区查询文档并在模型中进行转换：
 
 As :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` relies on the Mongo PHP extension you have the same facilities
 to query documents and convert them transparently to model instances:

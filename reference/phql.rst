@@ -110,7 +110,7 @@ And every Car has a Brand, so a Brand has many Cars:
 
 创建PHQL查询 Creating PHQL Queries
 -------------------------------------
-通过:doc:`Phalcon\\Mvc\\Model\\Query <../api/Phalcon_Mvc_Model_Query>`的实例可以创建PHQL查询。
+通过 :doc:`Phalcon\\Mvc\\Model\\Query <../api/Phalcon_Mvc_Model_Query>` 的实例可以创建PHQL查询。
 
 PHQL queries can be created just by instantiating the class :doc:`Phalcon\\Mvc\\Model\\Query <../api/Phalcon_Mvc_Model_Query>`:
 
@@ -126,7 +126,7 @@ PHQL queries can be created just by instantiating the class :doc:`Phalcon\\Mvc\\
     // Execute the query returning a result if any
     $cars = $query->execute();
 
-从一个控制器或者是视图使用:doc:`models manager <../api/Phalcon_Mvc_Model_Manager>`可以非常简单的创建或者是执行PHQL:	
+从一个控制器或者是视图使用 :doc:`models manager <../api/Phalcon_Mvc_Model_Manager>` 可以非常简单的创建或者是执行PHQL:	
 	
 From a controller or a view, it's easy to create/execute them using an injected :doc:`models manager <../api/Phalcon_Mvc_Model_Manager>`:
 
@@ -958,15 +958,15 @@ PHQL 生命周期PHQL Lifecycle
 Being a high-level language, PHQL gives developers the ability to personalize and customize different aspects in order to suit their needs.
 The following is the life cycle of each PHQL statement executed:
 
-* PHQL解析和转换成一个中间表示(IR)是独立于SQL数据库系统实现的　　
-* 根据红外转换为有效的SQL数据库系统模型相关　　
+* PHQL解析和转换成一个中间表示语言(IR)是独立于SQL数据库系统实现的　　
+* 根据中间表述语言转换为有效的SQL数据库系统模型相关　　
 * PHQL语句解析一次,在内存中缓存。进一步执行相同的语句导致更快的执行
 
 * The PHQL is parsed and converted into an Intermediate Representation (IR) which is independent of the SQL implemented by database system
 * The IR is converted to valid SQL according to the database system associated to the model
 * PHQL statements are parsed once and cached in memory. Further executions of the same statement result in a slightly faster execution
 
-使用原生 SQLUsing Raw SQL
+使用原生SQL Using Raw SQL
 ----------------------------
 数据库系统可以提供特定的而PHQL不支持的SQL扩展,在这种情况下,可以使用原生的SQL:
 

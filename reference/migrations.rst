@@ -5,7 +5,7 @@
 Migrations are a convenient way for you to alter your database in a structured and organized manner.
 
 .. highlights::
-    **重要：** 迁移在:doc:`Phalcon Developer Tools <tools>` 中可用。需要使用最新的框架,php框架要求PHP 5.4及以上。
+    **重要：** 迁移在 :doc:`Phalcon Developer Tools <tools>` 中可用。需要使用最新的框架,php框架要求PHP 5.4及以上。
 
     **Important:** Migrations are available on :doc:`Phalcon Developer Tools <tools>` You need at least Phalcon Framework version 0.5.0 to use developer tools. Also is recommended to have PHP 5.4 or greater installed.
 
@@ -51,7 +51,7 @@ Each migration has a version identifier associated to it. The version number all
    
 When a migration is generated, instructions are displayed on the console to describe the different steps of the migration and the execution time of those statements. At the end, a migration version is generated.
 
-默认:doc:`Phalcon Developer Tools <tools>`使用*app/migrations*作为迁移文件导出目录。可以通过设置参数改变导出的路径。数据库中的每个表都会导出一个单独的文件在版本号目录中。
+默认 :doc:`Phalcon Developer Tools <tools>` 使用*app/migrations*作为迁移文件导出目录。可以通过设置参数改变导出的路径。数据库中的每个表都会导出一个单独的文件在版本号目录中。
 
 By default :doc:`Phalcon Developer Tools <tools>` use the *app/migrations* directory to dump the migration files. You can change the location by setting one of the parameters on the generation script. Each table in the database has its respective class generated in a separated file under a directory referring its version:
 
@@ -176,9 +176,9 @@ The class is called "ProductsMigration_100". Suffix 100 refers to the version 1.
 
 定义列Defining Columns
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:doc:`Phalcon\\Db\\Column <../api/Phalcon_Db_Column>`被用于定义表的列。它封装了列的一系列的功能。接受第一个参数作为列名。一个数组作为列的描述。下面是列描述的参数。
+ :doc:`Phalcon\\Db\\Column <../api/Phalcon_Db_Column>` 被用于定义表的列。它封装了列的一系列的功能。接受第一个参数作为列名。一个数组作为列的描述。下面是列描述的参数。
 
-:doc:`Phalcon\\Db\\Column <../api/Phalcon_Db_Column>` is used to define table columns. It encapsulates a wide variety of column related features. Its constructor receives as first parameter the column name and an array describing the column. The following options are available when describing columns:
+ :doc:`Phalcon\\Db\\Column <../api/Phalcon_Db_Column>` is used to define table columns. It encapsulates a wide variety of column related features. Its constructor receives as first parameter the column name and an array describing the column. The following options are available when describing columns:
 
 +-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+----------+
 | Option          | Description                                                                                                                                | Optional |
@@ -214,7 +214,7 @@ Database migrations support the following database column types:
 
 定义索引Defining Indexes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:doc:`Phalcon\\Db\\Index <../api/Phalcon_Db_Index>`定义数据库表的索引。索引只需要你为它定义一个名称和一个列表的列。注意,如果任何索引的名称为PRIMARY，Phalcon将创建一个表的主键索引。
+ :doc:`Phalcon\\Db\\Index <../api/Phalcon_Db_Index>` 定义数据库表的索引。索引只需要你为它定义一个名称和一个列表的列。注意,如果任何索引的名称为PRIMARY，Phalcon将创建一个表的主键索引。
 
 :doc:`Phalcon\\Db\\Index <../api/Phalcon_Db_Index>` defines table indexes. An index only requires that you define a name for it and a list of its columns. Note that if any index has the name PRIMARY, Phalcon will create a primary key index in that table.
 
