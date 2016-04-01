@@ -1,6 +1,6 @@
 生成 URL 和 路径Generating URLs and Paths
 ===============================================
-:doc:`Phalcon\\Mvc\\Url <../api/Phalcon_Mvc_Url>`是phalcon应用中生成urls的组件。可以根据路由生成独立的urls.
+:doc:`Phalcon\\Mvc\\Url <../api/Phalcon_Mvc_Url>` 是phalcon应用中生成urls的组件。可以根据路由生成独立的urls.
 
 :doc:`Phalcon\\Mvc\\Url <../api/Phalcon_Mvc_Url>` is the component responsible of generate urls in a Phalcon application. It's
 capable of produce independent urls based on routes.
@@ -66,7 +66,7 @@ Usually, this component must be registered in the Dependency Injector container,
 
 生成 URIGenerating URIs
 -----------------------------
-如果使用:doc:`Router <routing>`的默认行为，我们的应用将匹配/:controller/:action/:params模式。使用get方法将非常简单的实现这种模式的链接:
+如果使用 :doc:`Router <routing>` 的默认行为，我们的应用将匹配/:controller/:action/:params模式。使用get方法将非常简单的实现这种模式的链接:
 
 If you are using the :doc:`Router <routing>` with its default behavior. Your application is able to match routes based on the
 following pattern: /:controller/:action/:params. Accordingly it is easy to create routes that satisfy that pattern (or any other
@@ -210,13 +210,13 @@ This component allow you to set up a different base uri for static resources in 
     //Static resources go through a CDN
     $url->setStaticBaseUri('http://static.mywebsite.com/');
 
-使用:doc:`Phalcon\\Tag <tags>`需要提供动态和静态的urls。	
+使用 :doc:`Phalcon\\Tag <tags>` 需要提供动态和静态的urls。	
 	
 :doc:`Phalcon\\Tag <tags>` will request both dynamical and static URIs using this component.
 
 自定义 URL 生成器 Implementing your own Url Generator
 -----------------------------------------------------------
-如果要自定义phalcon中url生成方法:doc:`Phalcon\\Mvc\\UrlInterface <../api/Phalcon_Mvc_UrlInterface>`这个必须要被集成实现。
+如果要自定义phalcon中url生成方法 :doc:`Phalcon\\Mvc\\UrlInterface <../api/Phalcon_Mvc_UrlInterface>` 这个必须要被集成实现。
 
 The :doc:`Phalcon\\Mvc\\UrlInterface <../api/Phalcon_Mvc_UrlInterface>` interface must be implemented to create your own URL
 generator replacing the one provided by Phalcon.

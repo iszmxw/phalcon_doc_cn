@@ -89,7 +89,7 @@ following URL (/admin/users/a/delete/dave/301) then:
 | Parameter  | 301           |
 +------------+---------------+
 
-add()方法可以接受预定义占位符和正则表达式修饰符。所有的路由路径必须由(/)开始。正则表达式语法和`PCRE regular expressions`_是一致的。　没有必要添加正则表达式分隔符。所有路由匹配模式是不区分大小写的。
+add()方法可以接受预定义占位符和正则表达式修饰符。所有的路由路径必须由(/)开始。正则表达式语法和 `PCRE regular expressions`_ 是一致的。　没有必要添加正则表达式分隔符。所有路由匹配模式是不区分大小写的。
 
 The method add() receives a pattern that optionally could have predefined placeholders and regular expression
 modifiers. All the routing patterns must start with a slash character (/). The regular expression syntax used
@@ -128,7 +128,7 @@ to understand. The following placeholders are supported:
 Controller names are camelized, this means that characters (-) and (_) are removed and the next character
 is uppercased. For instance, some_controller is converted to SomeController.
 
-因为要使用add()方法添加很多路由规则,添加的顺序决定了它们匹配的顺序,最后添加路由规格优于最先添加的。在内部所有定义的规格都是按照相反顺序执行的,直到:doc:`Phalcon\\Mvc\\Router <../api/Phalcon_Mvc_Router>` 匹配到一个URI规格并执行，后面的规则将会被忽略。
+因为要使用add()方法添加很多路由规则,添加的顺序决定了它们匹配的顺序,最后添加路由规格优于最先添加的。在内部所有定义的规格都是按照相反顺序执行的,直到 :doc:`Phalcon\\Mvc\\Router <../api/Phalcon_Mvc_Router>`  匹配到一个URI规格并执行，后面的规则将会被忽略。
 
 Since you can add many routes as you need using add(), the order in which routes are added indicate
 their relevance, latest routes added have more relevance than first added. Internally, all defined routes
@@ -1180,7 +1180,7 @@ You need to create app/config/routes.php and add router initialization code, for
 
 实现自定义路由Implementing your own Router
 --------------------------------------------
-:doc:`Phalcon\\Mvc\\RouterInterface <../api/Phalcon_Mvc_RouterInterface>`在创建自定义路由的时候必须先被集成实现。
+ :doc:`Phalcon\\Mvc\\RouterInterface <../api/Phalcon_Mvc_RouterInterface>` 在创建自定义路由的时候必须先被集成实现。
 
 The :doc:`Phalcon\\Mvc\\RouterInterface <../api/Phalcon_Mvc_RouterInterface>` interface must be implemented to create your own router replacing
 the one provided by Phalcon.

@@ -25,7 +25,7 @@ When a migration is generated a set of classes are created to describe how your 
 
 数据定义导出Schema Dumping
 ------------------------------------
- :doc:`Phalcon Developer Tools <tools>`提供了脚本去管理迁移(生成, 运行和回滚).
+ :doc:`Phalcon Developer Tools <tools>` 提供了脚本去管理迁移(生成, 运行和回滚).
 
 The :doc:`Phalcon Developer Tools <tools>` provides scripts to manage migrations (generation, running and rollback).
 

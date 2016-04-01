@@ -264,7 +264,7 @@ If you have experience with SQL databases, you may want to check the `SQL to Mon
 
 聚合Aggregations
 -----------------------
-我们可以使用Mongo提供的`aggregation framework`_方法使用Mongo模型返回聚合结果。聚合结果不是使用MapReduce来计算的。基于此，我们可以非常容易的取得聚合值，比如总计或平均值等:
+我们可以使用Mongo提供的 `aggregation framework`_ 方法使用Mongo模型返回聚合结果。聚合结果不是使用MapReduce来计算的。基于此，我们可以非常容易的取得聚合值，比如总计或平均值等:
 
 A model can return calculations using `aggregation framework`_ provided by Mongo. The aggregated values are calculate without having to use MapReduce.
 With this option is easy perform tasks such as totaling or averaging field values:
@@ -324,7 +324,8 @@ The "_id" property is automatically updated with the MongoId_ object created by 
 
 验证信息Validation Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` 提供了一个信息子系统，使用此系统开发者可以非常容易的实现在数据处理中的验证信息的显示及保存。 每条信息即是一个:doc:`Phalcon\\Mvc\\Model\\Message <../api/Phalcon_Mvc_Model_Message>`类的对象实例。我们使用getMessages来取得此信息。每条信息中包含了如哪个字段产生的消息，或是消息类型等信息：
+:doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` 提供了一个信息子系统，使用此系统开发者可以非常容易的实现在数据处理中的验证信息的显示及保存。 每条信息即是一个
+:doc:`Phalcon\\Mvc\\Model\\Message <../api/Phalcon_Mvc_Model_Message>` 类的对象实例。我们使用getMessages来取得此信息。每条信息中包含了如哪个字段产生的消息，或是消息类型等信息：
 
 :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` has a messaging subsystem that provides a flexible way to output or store the
 validation messages generated during the insert/update processes.
@@ -527,7 +528,7 @@ The following example implements an event that validates the year cannot be smal
 
     }
 
-在响应某些事件时返回了false则会停止当前的操作。 如果事实响应未返回任何值， :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>`会假定返回了true值。	
+在响应某些事件时返回了false则会停止当前的操作。 如果事实响应未返回任何值， :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` 会假定返回了true值。	
 	
 Some events return false as an indication to stop the current operation. If an event doesn't return anything,
 :doc:`Phalcon\\Mvc\\Collection <../api/Phalcon_Mvc_Collection>` will assume a true value.

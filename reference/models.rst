@@ -1595,7 +1595,7 @@ These methods "create" and "update" also accept an array of values as parameter.
 
 自动生成标识列Auto-generated identity columns
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-有些模型有标示列。这些列通常是映射表的主键。:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`在产生SQL INSERT的时候可以自动忽略这些列,数据库系统会自动为其生成一个值。在每次新的记录被创建后，这些标示列会被数据库自动产生的值赋值:
+有些模型有标示列。这些列通常是映射表的主键。:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 在产生SQL INSERT的时候可以自动忽略这些列,数据库系统会自动为其生成一个值。在每次新的记录被创建后，这些标示列会被数据库自动产生的值赋值:
 
 Some models may have identity columns. These columns usually are the primary key of the mapped table. :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`
 can recognize the identity column omitting it in the generated SQL INSERT, so the database system can generate an auto-generated value for it.
@@ -1713,12 +1713,12 @@ You need to overload Phalcon\Mvc\Model::save() for this to work from within a mo
 
 验证信息Validation Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`有个消息子系统，可以灵活的显示或者储存在执行insert/update流程中的验证信息。
+:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 有个消息子系统，可以灵活的显示或者储存在执行insert/update流程中的验证信息。
 
 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` has a messaging subsystem that provides a flexible way to output or store the
 validation messages generated during the insert/update processes.
 
-每个消息包含一个:doc:`Phalcon\\Mvc\\Model\\Message <../api/Phalcon_Mvc_Model_Message>`类的实例。产生的消息可以通过getMessages()获得。每个消息提供了扩展字段名，消息内容，消息类型:
+每个消息包含一个 :doc:`Phalcon\\Mvc\\Model\\Message <../api/Phalcon_Mvc_Model_Message>` 类的实例。产生的消息可以通过getMessages()获得。每个消息提供了扩展字段名，消息内容，消息类型:
 
 Each message consists of an instance of the class :doc:`Phalcon\\Mvc\\Model\\Message <../api/Phalcon_Mvc_Model_Message>`. The set of
 messages generated can be retrieved with the method getMessages(). Each message provides extended information like the field name that
@@ -1788,7 +1788,7 @@ The method getMessages() can be overridden in a model to replace/translate the d
 
 事件和事件管理器Events and Events Manager
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-数据模型允许在执行insert/update/delete触发事件。帮助我们更好的建立业务逻辑。下面是:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`支持的事件和执行顺序：
+数据模型允许在执行insert/update/delete触发事件。帮助我们更好的建立业务逻辑。下面是 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 支持的事件和执行顺序：
 
 Models allow you to implement events that will be thrown when performing an insert/update/delete. They help define business rules for a
 certain model. The following are the events supported by :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` and their order of execution:
@@ -1874,7 +1874,7 @@ Events can be useful to assign values before performing an operation, for exampl
 
 使用自定义事件管理器Using a custom Events Manager
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-事件管理器组件被整合到:doc:`Phalcon\\Events\\Manager <../api/Phalcon_Events_Manager>`，我们可以创建事件监听器，并监听事件是否被触发。
+事件管理器组件被整合到 :doc:`Phalcon\\Events\\Manager <../api/Phalcon_Events_Manager>` ，我们可以创建事件监听器，并监听事件是否被触发。
 
 Additionally, this component is integrated with :doc:`Phalcon\\Events\\Manager <../api/Phalcon_Events_Manager>`,
 this means we can create listeners that run when an event is triggered.
@@ -2007,7 +2007,7 @@ will assume a true value.
 
 验证数据完整性Validating Data Integrity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`提供了一些事件来验证数据和实施业务规则。特殊的"验证"事件允许我们调用内置的验证器验证记录。Phalcon暴露一些内置的验证器,我们可以使用这些验证。
+:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 提供了一些事件来验证数据和实施业务规则。特殊的"验证"事件允许我们调用内置的验证器验证记录。Phalcon暴露一些内置的验证器,我们可以使用这些验证。
 
 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` provides several events to validate data and implement business rules. The special "validation"
 event allows us to call built-in validators over the record. Phalcon exposes a few built-in validators that can be used at this stage of validation.
@@ -2173,7 +2173,7 @@ The idea of creating validators is make them reusable between several models. A 
 
 避免SQL注入Avoiding SQL injections
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-每个值分配给模型属性会根据数据类型被转义。程序员不必手动转义每个值保存到数据库。Phalcon使用内置的`bound parameters <http://php.net/manual/en/pdostatement.bindparam.php>`_ 由PDO提供的功能自动转义存入数据库的值。
+每个值分配给模型属性会根据数据类型被转义。程序员不必手动转义每个值保存到数据库。Phalcon使用内置的 `bound parameters <http://php.net/manual/en/pdostatement.bindparam.php>`_ 由PDO提供的功能自动转义存入数据库的值。
 
 Every value assigned to a model attribute is escaped depending of its data type. A developer doesn't need to escape manually
 each value before storing it on the database. Phalcon uses internally the `bound parameters <http://php.net/manual/en/pdostatement.bindparam.php>`_
@@ -3201,7 +3201,7 @@ In models that have this feature activated you can check what fields changed:
 
 模型元数据Models Meta-Data
 ------------------------------
-为了加速开发:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 可以帮助我们查询字段及表之前的相关约束信息。 :doc:`Phalcon\\Mvc\\Model\\MetaData <../api/Phalcon_Mvc_Model_MetaData>`使用可以满足需求并且可以缓存表的元数据。
+为了加速开发 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 可以帮助我们查询字段及表之前的相关约束信息。 :doc:`Phalcon\\Mvc\\Model\\MetaData <../api/Phalcon_Mvc_Model_MetaData>` 使用可以满足需求并且可以缓存表的元数据。
 
 To speed up development :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` helps you to query fields and constraints from tables
 related to models. To achieve this, :doc:`Phalcon\\Mvc\\Model\\MetaData <../api/Phalcon_Mvc_Model_MetaData>` is available to manage
@@ -3654,7 +3654,7 @@ query executed:
 
 记录底层SQL语句Logging Low-Level SQL Statements
 -------------------------------------------------------
-当使用高级抽象组件(如:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`的访问数据库,我们很难理解哪些语句最终被发送到数据库系统执行。:doc:`Phalcon\\Db <../api/Phalcon_Db>`内置支持:doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 。所以通过:doc:`Phalcon\\Logger <../api/Phalcon_Logger>`和:doc:`Phalcon\\Db <../api/Phalcon_Db>`的交互为数据库抽象层提供了日志功能,能够让我们记录SQL语句。
+当使用高级抽象组件(如 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 的访问数据库,我们很难理解哪些语句最终被发送到数据库系统执行。 :doc:`Phalcon\\Db <../api/Phalcon_Db>` 内置支持 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 。所以通过 :doc:`Phalcon\\Logger <../api/Phalcon_Logger>` 和 :doc:`Phalcon\\Db <../api/Phalcon_Db>` 的交互为数据库抽象层提供了日志功能,能够让我们记录SQL语句。
 
 When using high-level abstraction components such as :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` to access a database, it is
 difficult to understand which statements are finally sent to the database system. :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`
@@ -3723,7 +3723,7 @@ As above, the file *app/logs/db.log* will contain something like this:
 
 分析SQL语句Profiling SQL Statements
 ----------------------------------------
-使用:doc:`Phalcon\\Db <../api/Phalcon_Db>`,底层组件 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`可以通过分析由ORM产生的SQL语言来分析数据库操作的性能让我们可以诊断性能问题并发现瓶颈。
+使用 :doc:`Phalcon\\Db <../api/Phalcon_Db>` ,底层组件 :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>` 可以通过分析由ORM产生的SQL语言来分析数据库操作的性能让我们可以诊断性能问题并发现瓶颈。
 
 Thanks to :doc:`Phalcon\\Db <../api/Phalcon_Db>`, the underlying component of :doc:`Phalcon\\Mvc\\Model <../api/Phalcon_Mvc_Model>`,
 it's possible to profile the SQL statements generated by the ORM in order to analyze the performance of database operations. With
